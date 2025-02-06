@@ -21,7 +21,7 @@ function sumatoria() {
   const resultado = document.createElement("span");
 
   resultado.innerText = suma;
-  
+
   if (suma < 50) {
     resultado.style.color = "green";
   } else {
@@ -32,12 +32,14 @@ function sumatoria() {
   titulo.appendChild(resultado);
 }
 
-
-document.addEventListener("keydown", function(event) {
+function reiniciar(event) {
   if (event.key === "Escape") {
     location.reload(); // Recarga la página para reiniciar
   }
-});
+}
 
 btnAgregar.addEventListener("click", agregar);
 btnSumatoria.addEventListener("click", sumatoria);
+
+// Escuchar el evento 'keydown' en el documento para detectar la tecla Escape
+document.addEventListener("keydown", reiniciar);
