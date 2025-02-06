@@ -18,8 +18,26 @@ function agregar() {
 
 function sumatoria() {
   const titulo = document.getElementById("titulo");
-  titulo.innerText = "La sumatoria es: " + suma;
+  const resultado = document.createElement("span");
+
+  resultado.innerText = suma;
+  
+  if (suma < 50) {
+    resultado.style.color = "green";
+  } else {
+    resultado.style.color = "red";
+  }
+
+  titulo.innerHTML = "La sumatoria es: ";
+  titulo.appendChild(resultado);
 }
+
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    location.reload(); // Recarga la página para reiniciar
+  }
+});
 
 btnAgregar.addEventListener("click", agregar);
 btnSumatoria.addEventListener("click", sumatoria);
